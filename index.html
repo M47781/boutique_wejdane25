@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوتيك وجدان 25 - Boutique Wejdane 25</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&family=Amiri:wght@400;700&display=swap');
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --black: #000000;
+  --gold: #d4af37;
+  --gold-gradient: linear-gradient(135deg, #a67c00 0%, #d4af37 50%, #f9e297 100%);
+  --white: #fff;
+  --whatsapp: #25D366;
+}
+
+/* ===== ANIMATION BACKGROUND ===== */
+body {
+  min-height: 100vh;
+  font-family: 'Poppins', 'Amiri', serif;
+  background: linear-gradient(-45deg, #000000, #1a1a1a, #44350a, #000000);
+  background-size: 400% 400%;
+  animation: goldFlow 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+@keyframes goldFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body[dir="rtl"]{direction:rtl; font-family: 'Amiri', serif;}
+
+/* ===== CONTAINER LUXE ===== */
+.container{
+  max-width:480px;
+  width:100%;
+  padding:30px 20px;
+  border-radius:30px;
+  background: rgba(0, 0, 0, 0.88);
+  border: 1px solid var(--gold);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.2);
+  text-align:center;
+  z-index: 10;
+}
+
+.logo{
+  width:110px;
+  border-radius:50%;
+  border: 2px solid var(--gold);
+  margin:0 auto 15px auto;
+  display:block;
+}
+
+h1{
+  font-family: 'Cinzel', serif;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.bio{ color: #ddd; font-size: 16px; line-height: 1.6; margin-bottom: 20px; min-height: 50px;}
+
+/* ===== LANG SWITCH ===== */
+.lang-switch{ margin-bottom: 20px; display: flex; justify-content: center; gap: 8px; flex-direction: row-reverse; }
+.lang-switch button{
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 6px 14px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+.lang-switch button.active{ background: var(--gold-gradient); color: #000; border: none; }
+
+/* ===== BOUTONS ===== */
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 15px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  transition: .3s;
+}
+.btn:hover{ transform: scale(1.02); background: rgba(212, 175, 55, 0.1); border-color: var(--gold); }
+.btn img { width: 22px; height: 22px; } /* Removed black filter here */
+
+.btn-whatsapp { background: rgba(37, 211, 102, 0.15); border: 1px solid var(--whatsapp); }
+.btn-delivery { background: rgba(212, 175, 55, 0.15); border: 1.5px solid var(--gold); cursor: pointer; }
+
+/* ===== CAROUSEL LOOP SYSTEM ===== */
+.carousel-container{ 
+  width: 100%; height: 220px; overflow: hidden; margin: 15px 0; border-radius: 15px; border: 1px solid var(--gold); position: relative;
+}
+.carousel-track{ display: flex; width: max-content; gap: 10px; animation: scroll 20s linear infinite; }
+body[dir="rtl"] .carousel-track { animation: scrollRTL 20s linear infinite; }
+.carousel-track img{ height: 220px; width: 160px; border-radius: 12px; object-fit: cover; flex-shrink: 0; }
+@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-160px * 5 - 50px)); } }
+@keyframes scrollRTL { 0% { transform: translateX(0); } 100% { transform: translateX(calc(160px * 5 + 50px)); } }
+
+/* ===== MAP CARD ===== */
+.map-card{ margin-top: 25px; background: rgba(255,255,255,0.03); border-radius: 20px; padding: 12px; border: 1px solid var(--gold); }
+.map-container{ width: 100%; height: 280px; border-radius: 15px; overflow: hidden; }
+.map-container iframe{ width: 100%; height: 100%; border: none; }
+
+#footer{ color: var(--gold); font-size: 11px; margin-top: 20px; letter-spacing: 1px; }
+
+/* Lightbox */
+.lightbox{position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; justify-content: center; align-items: center; z-index: 2000;}
+.lightbox.active{display: flex;}
+.lightbox img{max-width: 90%; max-height: 80%; border: 1px solid var(--gold); border-radius: 10px;}
+</style>
+</head>
+
+<body>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+  <img id="lightbox-img" src="">
+</div>
+
+<div class="container">
+  <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771322094/Group_41_gfh4rn.png" class="logo">
+
+  <div class="lang-switch">
+    <button id="btn-ar" onclick="setLang('ar')">العربية</button>
+    <button id="btn-fr" onclick="setLang('fr')">Français</button>
+    <button id="btn-en" onclick="setLang('en')">English</button>
+  </div>
+
+  <h1>Boutique Wejdane 25</h1>
+  <p id="bio" class="bio"></p>
+
+  <div class="carousel-container">
+    <div class="carousel-track">
+      <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771322752/photo_5811963888734506231_y_xu8z2e.jpg">
+      <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771322753/photo_5811963888734506232_y_zlbgvr.jpg">
+      <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771322751/photo_5811963888734506230_y_oseuu8.jpg">
+      <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771322749/photo_5811963888734506234_y_clzbvs.jpg">
+      <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771322751/photo_5811963888734506233_y_rkhkyf.jpg">
+      <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771322752/photo_5811963888734506231_y_xu8z2e.jpg">
+      <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771322753/photo_5811963888734506232_y_zlbgvr.jpg">
+      <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771322751/photo_5811963888734506230_y_oseuu8.jpg">
+      <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771322749/photo_5811963888734506234_y_clzbvs.jpg">
+      <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771322751/photo_5811963888734506233_y_rkhkyf.jpg">
+    </div>
+  </div>
+
+  <a class="btn btn-whatsapp" href="https://wa.me/213799408998" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/128/3670/3670051.png">
+    <span id="txt-contact"></span>
+  </a>
+
+  <div class="btn btn-delivery" onclick="openLightbox('https://res.cloudinary.com/dv664dogt/image/upload/v1771354367/photo_5811963888734506417_y_frh2ca.jpg')">
+    <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771357565/product-delivery_17627513_dwgiwn.png">
+    <span id="txt-delivery"></span>
+  </div>
+
+  <a class="btn" href="https://wejdane25.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/128/841/841364.png">
+    <span id="txt-site"></span>
+  </a>
+
+  <a class="btn" href="https://www.instagram.com/boutique_wejdane25" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png">
+    <span id="txt-insta"></span>
+  </a>
+
+  <a class="btn" href="https://www.tiktok.com/@boutique_wejdane_25" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/128/3046/3046121.png">
+    <span id="txt-tiktok"></span>
+  </a>
+
+  <a class="btn" href="https://www.facebook.com/share/17kffGkxU5/" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/128/733/733547.png">
+    <span id="txt-fb"></span>
+  </a>
+
+  <a class="btn" href="https://youtube.com/@boutiquewejdane25" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/128/1384/1384060.png">
+    <span id="txt-yt"></span>
+  </a>
+
+  <div class="map-card">
+    <h3 id="map-title" style="font-size: 15px; margin-bottom:10px; color:var(--gold);"></h3>
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3209.431448375635!2d6.6111!3d36.3622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f170bf06987f6b%3A0xc4825906c279c1d!2sBoutique%20Wejdane!5e0!3m2!1sar!2sdz!4v1710000000000!5m2!1sar!2sdz" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <p id="footer"></p>
+</div>
+
+<script>
+const content={
+ar:{
+bio:"متخصصة في أرقى الأزياء التقليدية وتجهيز العرائس ✨<br>كراكوا • قفطان • فساتين عصرية",
+contact:"تواصلوا معنا عبر واتساب 📱",
+delivery:"أسعار خدمة التوصيل 📦",
+site:"الموقع الإلكتروني الرسمي",
+insta:"إنستغرام",
+tiktok:"تيك توك",
+fb:"فيسبوك",
+yt:"يوتيوب",
+map:"📍 موقعنا بدقة في مدينة قسنطينة",
+footer:"قسنطينة • فخامة وأصالة • 2026",
+dir:"rtl"
+},
+fr:{
+bio:"Spécialiste en tenues traditionnelles & <b>Trousseau de la mariée</b> ✨<br>Karakou • Caftan • Robes modernes",
+contact:"Contactez-nous (WhatsApp) 📱",
+delivery:"Tarifs de Livraison 📦",
+site:"Site officiel",
+insta:"Instagram",
+tiktok:"TikTok",
+fb:"Facebook",
+yt:"YouTube",
+map:"📍 Notre Boutique à Constantine",
+footer:"CONSTANTINE • LUXE & TRADITION • 2026",
+dir:"ltr"
+},
+en:{
+bio:"Luxury traditional outfits & bridal wear ✨",
+contact:"Contact us (WhatsApp) 📱",
+delivery:"Delivery Rates 📦",
+site:"Official Website",
+insta:"Instagram",
+tiktok:"TikTok",
+fb:"Facebook",
+yt:"YouTube",
+map:"📍 Our Location in Constantine",
+footer:"CONSTANTINE • LUXURY & TRADITION • 2026",
+dir:"ltr"
+}
+};
+
+function setLang(l){
+document.body.dir=content[l].dir;
+document.getElementById("bio").innerHTML=content[l].bio;
+document.getElementById("txt-contact").innerText=content[l].contact;
+document.getElementById("txt-delivery").innerText=content[l].delivery;
+document.getElementById("txt-site").innerText=content[l].site;
+document.getElementById("txt-insta").innerText=content[l].insta;
+document.getElementById("txt-tiktok").innerText=content[l].tiktok;
+document.getElementById("txt-fb").innerText=content[l].fb;
+document.getElementById("txt-yt").innerText=content[l].yt;
+document.getElementById("map-title").innerText=content[l].map;
+document.getElementById("footer").innerText=content[l].footer;
+document.querySelectorAll(".lang-switch button").forEach(b=>b.classList.remove("active"));
+document.getElementById("btn-"+l).classList.add("active");
+}
+setLang("ar");
+
+function openLightbox(src){
+document.getElementById("lightbox-img").src=src;
+document.getElementById("lightbox").classList.add("active");
+}
+</script>
+
+</body>
+</html>
