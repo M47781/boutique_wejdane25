@@ -67,7 +67,6 @@ h1{
   font-family: 'Cinzel', serif;
   background: var(--gold-gradient);
   -webkit-background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 24px;
   margin-bottom: 10px;
@@ -107,7 +106,7 @@ h1{
   transition: .3s;
 }
 .btn:hover{ transform: scale(1.02); background: rgba(212, 175, 55, 0.1); border-color: var(--gold); }
-.btn img { width: 22px; height: 22px; } /* Removed black filter here */
+.btn img { width: 22px; height: 22px; }
 
 .btn-whatsapp { background: rgba(37, 211, 102, 0.15); border: 1px solid var(--whatsapp); }
 .btn-delivery { background: rgba(212, 175, 55, 0.15); border: 1.5px solid var(--gold); cursor: pointer; }
@@ -122,7 +121,7 @@ body[dir="rtl"] .carousel-track { animation: scrollRTL 20s linear infinite; }
 @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-160px * 5 - 50px)); } }
 @keyframes scrollRTL { 0% { transform: translateX(0); } 100% { transform: translateX(calc(160px * 5 + 50px)); } }
 
-/* ===== MAP CARD ===== */
+/* ===== MAP CARD UPDATED ===== */
 .map-card{ margin-top: 25px; background: rgba(255,255,255,0.03); border-radius: 20px; padding: 12px; border: 1px solid var(--gold); }
 .map-container{ width: 100%; height: 280px; border-radius: 15px; overflow: hidden; }
 .map-container iframe{ width: 100%; height: 100%; border: none; }
@@ -175,7 +174,7 @@ body[dir="rtl"] .carousel-track { animation: scrollRTL 20s linear infinite; }
   </a>
 
   <div class="btn btn-delivery" onclick="openLightbox('https://res.cloudinary.com/dv664dogt/image/upload/v1771354367/photo_5811963888734506417_y_frh2ca.jpg')">
-    <img src="https://res.cloudinary.com/dv664dogt/image/upload/v1771357565/product-delivery_17627513_dwgiwn.png">
+    <img src="https://cdn-icons-png.flaticon.com/128/3180/3180862.png">
     <span id="txt-delivery"></span>
   </div>
 
@@ -207,7 +206,7 @@ body[dir="rtl"] .carousel-track { animation: scrollRTL 20s linear infinite; }
   <div class="map-card">
     <h3 id="map-title" style="font-size: 15px; margin-bottom:10px; color:var(--gold);"></h3>
     <div class="map-container">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3209.431448375635!2d6.6111!3d36.3622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f170bf06987f6b%3A0xc4825906c279c1d!2sBoutique%20Wejdane!5e0!3m2!1sar!2sdz!4v1710000000000!5m2!1sar!2sdz" allowfullscreen="" loading="lazy"></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3212.69580447636!2d6.6128222999999995!3d36.3681465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12f1771a34614adf%3A0xb5d87209c64aa752!2sBoutique%20Wejdane!5e0!3m2!1sfr!2sdz!4v1771358874910!5m2!1sfr!2sdz" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 
@@ -225,7 +224,7 @@ insta:"إنستغرام",
 tiktok:"تيك توك",
 fb:"فيسبوك",
 yt:"يوتيوب",
-map:"📍 موقعنا بدقة في مدينة قسنطينة",
+map:"📍 موقعنا في مدينة قسنطينة",
 footer:"قسنطينة • فخامة وأصالة • 2026",
 dir:"rtl"
 },
